@@ -1,7 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
 <% if current_user && current_user.admin?%>
-<%# if can? :create, Post %>
   <%= link_to "New post", new_admin_post_path %>
 <% end%>
 

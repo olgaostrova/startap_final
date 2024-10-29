@@ -1,8 +1,7 @@
 <div id="<%= dom_id startup %>">
-  <p>
-    <strong>Name:</strong>
-    <%= startup.name %>
-  </p>
+  <h2>
+    <%= link_to startup.name, startup_path(startup) %>
+  </h2>
 
   <p>
     <strong>Description:</strong>

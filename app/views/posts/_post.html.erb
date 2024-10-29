@@ -1,8 +1,7 @@
 <div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
+  <h2>
+    <%= link_to post.title, post_path(post) %>
+  </h2>
 
   <p>
     <strong>Text:</strong>
@@ -10,8 +9,8 @@
   </p>
 
   <p>
-    <strong>Description:</strong>
-    <%= post.description %>
+    <strong>Author email:</strong>
+    <%= post.user.email %>
   </p>
 
   <p>
@@ -24,5 +23,13 @@
     <strong>Tags:</strong>
     <%= post.tags %>
   </p>
+
+  <div>
+    <% post.comments.each do |comment| %>
+      <div>
+        <%= render "posts/comment", comment: comment %>
+      </div>
+    <% end %>
+  </div>
 
 </div>

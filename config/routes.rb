@@ -1,32 +1,35 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  match '/index', to: 'posts#index', via: 'get'
-
-  resources :tags
-  resources :tag_types
-  resources :messages
-  resources :comments
-  resources :startups do
+  resources :posts, only: [:index, :show] do
     collection do
       get "my"
     end
   end
-  resources :chats
-  resources :posts do
+  resources :startups, only: [:index, :show] do
     collection do
       get "my"
     end
   end
+  #resources :startups, only: [:index, :show]
 
   namespace :admin do
-    resources :posts, only: [:index]
-    resources :startups, only: [:index]
+    resources :tags
+    resources :tag_types
+    resources :messages
+    resources :comments
+    resources :chats
+
+    resources :startups, except: [:show] 
+    resources :posts, except: [:show] 
   end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  match '/index', to: 'posts#index', via: 'get'
 
   get 'welcome/index'
   get 'welcome/about'

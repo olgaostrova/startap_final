@@ -1,0 +1,10 @@
+<h1>Editing message</h1>
+
+<%= render "form", message: @message %>
+
+<br>
+
+<div>
+  <%= link_to "Show this message", admin_message_path(@message) %> |
+  <%= link_to "Back to messages", admin_messages_path %>
+</div>

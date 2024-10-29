@@ -1,0 +1,20 @@
+<div id="<%= dom_id chat %>">
+  <h2>
+    <%= link_to chat.name, admin_chat_path(chat) %>
+  </h2>
+
+
+  <p>
+    <strong>User:</strong>
+    <%= chat.user.email %>
+  </p>
+
+  <div>
+    <% chat.messages.each do |message| %>
+      <div>
+        <%= render "admin/chats/message", message: message %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tag types</h1>
+
+<div id="tag_types">
+  <% @tag_types.each do |tag_type| %>
+    <%= render tag_type %>
+    <p>
+      <%= link_to "Show this tag type", admin_tag_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New tag type", new_admin_tag_type_path %>

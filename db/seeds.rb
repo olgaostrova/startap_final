@@ -93,7 +93,8 @@ def create_message(quantity)
     i = 1
 
     quantity.to_a.sample.times do
-      message = chat.messages.create!(text: "Текст сообщения номер #{i}", user: chat.user)
+      user = User.all.sample
+      message = chat.messages.create!(text: "Текст сообщения номер #{i}", author_name: user.email, user: user)
       i += 1
       puts "Message with text #{message.text} just build for chat #{message.chat.name} just created"
     end
@@ -105,9 +106,9 @@ def create_comment(quantity)
     i = 1
 
     quantity.to_a.sample.times do
-      comment = post.comments.create!(text: "Текст комментария номер #{i}", author_name: post.user.email, user: post.user)
+      user = User.all.sample
+      comment = post.comments.create!(text: "Текст комментария номер #{i}", author_name: user.email, user: user)
       i += 1
-
       puts "Comment with text #{comment.text} just build for post #{comment.post.title} just created"
     end
   end
