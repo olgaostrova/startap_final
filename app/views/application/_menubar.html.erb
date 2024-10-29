@@ -1,0 +1,24 @@
+<nav class="S_MenuBar">
+  <div>
+    <%= link_to "Главная", root_url %>
+    <% if user_signed_in? && current_user.admin?%>
+      <%= link_to "Форум full access", admin_posts_url %>
+      <%= link_to "Песочница full access", admin_startups_url %>
+
+    <% else %>
+      <%= link_to "Форум", index_url %>
+      <%= link_to "Песочница", startups_url %>
+    <% end %>
+    <%= link_to "Мессенджер", chats_url %>
+    <%#= link_to "Личный кабинет", fills_url %>
+  </div>
+
+  <% if user_signed_in? %>
+    <%= link_to current_user.email, edit_user_registration_path %>
+    <%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete } %>
+  <% else %>
+    <%= link_to "Log in", new_user_session_path %>
+    <%= link_to "Register", new_user_registration_path %>
+  <% end %>
+
+</nav>
