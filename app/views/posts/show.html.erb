@@ -3,8 +3,27 @@
 <%= render @post %>
 
 <div>
-  <%= link_to "Edit this post", edit_admin_post_path(@post) %> |
-  <%= link_to "Back to posts", index_url %>
 
-  <%= button_to "Destroy this post", admin_post_path(@post), method: :delete %>
+<% if current_user && current_user.admin?%>
+
+    <%= link_to "Edit this post", edit_admin_post_path(@post) %> |
+    <%= button_to "Destroy this post", admin_post_path(@post), method: :delete %>
+<% end %>
+
 </div>
+
+<h3>
+Комментарии
+</h3>
+
+<div>
+  <% @post.comments.each do |comment| %>
+    <div>
+      <%= render "posts/comment", comment: comment %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Back to posts", index_url %>
+
+  

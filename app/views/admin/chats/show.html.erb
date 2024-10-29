@@ -1,10 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @chat %>
-
 <div>
+
+<% if current_user && current_user.admin?%>
   <%= link_to "Edit this chat", edit_admin_chat_path(@chat) %> |
   <%= link_to "Back to chats", admin_chats_path %>
-
   <%= button_to "Destroy this chat", admin_chat_path(@chat), method: :delete %>
+<% end %>
+
+<%= render @chat %>
+
+ <div>
+    <% @chat.messages.each do |message| %>
+      <div>
+        <%= render "admin/chats/message", message: message %>
+      </div>
+    <% end %>
+  </div>
+
 </div>

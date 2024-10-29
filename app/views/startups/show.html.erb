@@ -3,8 +3,10 @@
 <%= render @startup %>
 
 <div>
+
+<% if current_user && current_user.admin?%>
   <%= link_to "Edit this startup", edit_admin_startup_path(@startup) %> |
   <%= link_to "Back to startups", startups_url %>
-
   <%= button_to "Destroy this startup", admin_startup_path(@startup), method: :delete %>
+<% end %>
 </div>

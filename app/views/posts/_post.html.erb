@@ -1,35 +1,34 @@
 <div id="<%= dom_id post %>">
-  <h2>
+  <h2 class="post_title">
     <%= link_to post.title, post_path(post) %>
   </h2>
 
-  <p>
-    <strong>Text:</strong>
-    <%= post.text %>
-  </p>
-
-  <p>
-    <strong>Author email:</strong>
+  <h4 class="author">
+    Автор
     <%= post.user.email %>
-  </p>
-
-  <p>
-    <strong>Likes:</strong>
-    <%= post.likes %>
-  </p>
-
-  
-  <p>
-    <strong>Tags:</strong>
+  </h4>
+    
+  <p class="tags">
     <%= post.tags %>
   </p>
 
-  <div>
-    <% post.comments.each do |comment| %>
-      <div>
-        <%= render "posts/comment", comment: comment %>
-      </div>
-    <% end %>
+  <p>
+    <%= post.text %>
+  </p>
+
+  <div class="feedback">
+    <div class="likes"> 
+    <p> Лайки </p> 
+    <%= post.likes %>
+    </div>   
+    <div class="likes"> 
+    <p> Дизлайки </p> 
+    <%= post.dislikes %>
+    </div>  
+    <div class="taps"> 
+    <p> Тапы </p> 
+    <%= post.taps %>
+    </div>    
   </div>
 
 </div>

@@ -1,37 +1,26 @@
 <div id="<%= dom_id comment %>">
+
+  <h4>
+    <%= comment.user.email %>
+  </h4>
+    
   <p>
-    <strong>Text:</strong>
     <%= comment.text %>
   </p>
 
-  <p>
-    <strong>Likes:</strong>
+  <div class="feedback">
+    <div class="likes"> 
+    <p> Лайки </p> 
     <%= comment.likes %>
-  </p>
-
-  <p>
-    <strong>Dislikes:</strong>
+    </div>   
+    <div class="likes"> 
+    <p> Дизлайки </p> 
     <%= comment.dislikes %>
-  </p>
-
-  <p>
-    <strong>Taps:</strong>
+    </div>  
+    <div class="taps"> 
+    <p> Тапы </p> 
     <%= comment.taps %>
-  </p>
-
-  <p>
-    <strong>Author name:</strong>
-    <%= comment.author_name %>
-  </p>
-
-  <p>
-    <strong>Post:</strong>
-    <%= comment.post_id %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= comment.user_id %>
-  </p>
+    </div>    
+  </div>
 
 </div>

@@ -5,11 +5,11 @@ class Admin::ChatsController < ApplicationController
   # GET /chats or /chats.json
 
   def index
-    if current_user && current_user.admin?
-      @chats = Chat.all 
-    elsif current_user
+#    if current_user && current_user.admin?
+#      @chats = Chat.all 
+#    elsif current_user
       @chats = current_user.chats
-    end
+#    end
   end
 
   def show

@@ -2,6 +2,11 @@
 
 <h1>Chats</h1>
 
+<% if current_user %>
+  <%= link_to "New chat", new_admin_chat_path %>
+<% end %>
+
+
 <div id="chats">
   <% @chats.each do |chat| %>
     <%= render chat %>
@@ -10,5 +15,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New chat", new_admin_chat_path %>

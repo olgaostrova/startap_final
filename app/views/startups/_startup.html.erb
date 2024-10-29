@@ -1,16 +1,19 @@
 <div id="<%= dom_id startup %>">
-  <h2>
+  <h2 class="post_title">
     <%= link_to startup.name, startup_path(startup) %>
   </h2>
 
-  <p>
-    <strong>Description:</strong>
-    <%= startup.description %>
+  <h4 class="author">
+    Автор
+    <%= startup.user.email %>
+  </h4>
+    
+  <p class="tags">
+    <%= startup.tags %>
   </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= startup.user_id %>
+  <p class="description">
+    <%= startup.description %>
   </p>
 
 </div>
