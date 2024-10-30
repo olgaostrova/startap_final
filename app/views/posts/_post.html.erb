@@ -1,12 +1,12 @@
-<div id="<%= dom_id post %>">
-  <h2 class="post_title">
+<div id="<%= dom_id post %>" class="post">
+  <h3 class="post_title">
     <%= link_to post.title, post_path(post) %>
-  </h2>
+  </h3>
 
-  <h4 class="author">
+  <h5 class="author">
     Автор
     <%= post.user.email %>
-  </h4>
+  </h5>
     
   <p class="tags">
     <%= post.tags %>

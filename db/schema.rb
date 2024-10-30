@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_28_235453) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_29_223658) do
   create_table "chats", force: :cascade do |t|
     t.string "name"
     t.integer "user_id", null: false
@@ -71,6 +71,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_28_235453) do
     t.string "tags"
     t.boolean "public", default: true
     t.index ["user_id"], name: "index_startups_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tag_types", force: :cascade do |t|

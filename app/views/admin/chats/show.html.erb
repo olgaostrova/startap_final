@@ -10,7 +10,7 @@
 
 <%= render @chat %>
 
- <div>
+ <div class = "message_list">
     <% @chat.messages.each do |message| %>
       <div>
         <%= render "admin/chats/message", message: message %>

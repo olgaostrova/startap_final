@@ -9,9 +9,11 @@
 
 <div id="chats">
   <% @chats.each do |chat| %>
+  <div class="chat_select">
     <%= render chat %>
     <p>
       <%= link_to "Show this chat", admin_chat_path(chat) %>
     </p>
+  </div>
   <% end %>
 </div>

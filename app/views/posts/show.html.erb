@@ -1,22 +1,28 @@
 <p style="color: green"><%= notice %></p>
 
+<br>
+
 <%= render @post %>
 
-<div>
+<br>
+
+<div class="buttons_collection">
 
 <% if current_user && current_user.admin?%>
 
-    <%= link_to "Edit this post", edit_admin_post_path(@post) %> |
-    <%= button_to "Destroy this post", admin_post_path(@post), method: :delete %>
+     <%= link_to "Edit this post", edit_admin_post_path(@post) %>
+     <%= button_to "Destroy this post", admin_post_path(@post), method: :delete %>
 <% end %>
 
 </div>
+
+<br>
 
 <h3>
 Комментарии
 </h3>
 
-<div>
+<div class="comments_list">
   <% @post.comments.each do |comment| %>
     <div>
       <%= render "posts/comment", comment: comment %>
@@ -25,5 +31,4 @@
 </div>
 
 <%= link_to "Back to posts", index_url %>
-
   

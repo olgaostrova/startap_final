@@ -11,7 +11,8 @@ Rails.application.routes.draw do
       get "my"
     end
   end
-  #resources :startups, only: [:index, :show]
+  resources :subscriptions, only: [:create]
+
 
   namespace :admin do
     resources :tags
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     resources :messages
     resources :comments
     resources :chats
+    resources :subscriptions
 
     resources :startups, except: [:show] 
     resources :posts, except: [:show] 

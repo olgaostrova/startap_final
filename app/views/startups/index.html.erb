@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <% if current_user %>
-<%= link_to "New startup", new_admin_startup_path %>
+  <%= link_to "New startup", new_admin_startup_path %>
 <% end%>
 
-<div>
+<div id="startups">
  <%= render collection: @startups, partial: "startups/startup" %>
 </div>
